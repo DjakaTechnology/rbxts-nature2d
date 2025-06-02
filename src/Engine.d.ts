@@ -30,8 +30,6 @@ interface Engine {
   ObjectRemoved: Signal;
   Updated: Signal;
 
-  init(screengui: Instance): Engine;
-
   Start(): void;
   Stop(): void;
   Create(
@@ -53,5 +51,11 @@ interface Engine {
   SetCollisionIterations(iterations: number): void;
   Destroy(): void;
 }
+
+interface EngineConstructor {
+  init(screengui: Instance): Engine;
+}
+
+declare const Engine: EngineConstructor;
 
 export = Engine;
