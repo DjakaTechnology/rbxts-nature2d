@@ -4,8 +4,12 @@
 *.rbxm
 *.rbxl
 
-# Ignore lock files
-*.lock
-
 # Added by cargo
 /target
+
+/node_modules
+/out
+/include
+*.tsbuildinfo
+.vscode/
+*.tgz
