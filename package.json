@@ -19,6 +19,9 @@
     "2dphysics",
     "2d"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@rbxts/compiler-types": "^2.1.1-types.0",
     "@rbxts/types": "^1.0.704",
