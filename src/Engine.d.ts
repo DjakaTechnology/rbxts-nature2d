@@ -1,8 +1,8 @@
-import { Signal } from "./Utilities/Signal";
-import { RigidBody } from "./Physics/RigidBody";
-import { Constraint } from "./Physics/Constraint";
-import { Point } from "./Physics/Point";
-import { Canvas, DebugInfo, Properties } from "./Types";
+import Signal from "./Utilities/Signal";
+import RigidBody from "./Physics/RigidBody";
+import Constraint from "./Physics/Constraint";
+import Point from "./Physics/Point";
+import Types from "./Types";
 
 interface Iterations {
   constraint: number;
@@ -20,7 +20,7 @@ interface Engine {
   speed: number;
   quadtrees: boolean;
   independent: boolean;
-  canvas: Canvas;
+  canvas: Types.Canvas;
   iterations: Iterations;
 
   // Events
@@ -34,7 +34,7 @@ interface Engine {
   Stop(): void;
   Create(
     object: "Constraint" | "Point" | "RigidBody",
-    properties: Properties
+    properties: Types.Properties
   ): RigidBody | Constraint | Point;
   GetBodies(): RigidBody[];
   GetConstraints(): Constraint[];
@@ -44,7 +44,7 @@ interface Engine {
   SetPhysicalProperty(property: string, value: Vector2 | number): void;
   GetBodyById(id: string): RigidBody | undefined;
   GetConstraintById(id: string): Constraint | undefined;
-  GetDebugInfo(): DebugInfo;
+  GetDebugInfo(): Types.DebugInfo;
   UseQuadtrees(use: boolean): void;
   FrameRateIndependent(independent: boolean): void;
   SetConstraintIterations(iterations: number): void;

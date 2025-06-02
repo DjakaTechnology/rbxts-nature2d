@@ -1,6 +1,6 @@
-import { EngineConfig, PointConfig, Canvas } from "Types";
+import Types from "Types";
 
-declare class Point {
+interface Point {
   pos: Vector2;
   prevPos: Vector2;
   velocity: Vector2;
@@ -10,22 +10,23 @@ declare class Point {
   color: Color3;
   id: string;
   canvas: { frame: Frame | undefined; topLeft: Vector2; size: Vector2 };
-  engine: EngineConfig;
-  options: PointConfig;
+  engine: Types.EngineConfig;
+  options: Types.PointConfig;
   connections: RBXScriptConnection[];
   ui: Frame;
-
-  constructor(
-    position: Vector2,
-    canvas: Canvas,
-    engine: EngineConfig,
-    config: PointConfig,
-    parent?: Instance
-  );
-
   SetRadius(radius: number): void;
   Stroke(color: Color3): void;
   Destroy(): void;
 }
 
-export { Point };
+interface PointConstructor {
+  new (
+    position: Vector2,
+    canvas: Types.Canvas,
+    engine: Types.EngineConfig,
+    config: Types.PointConfig,
+    parent?: Instance
+  ): Point;
+}
+
+export = Point;

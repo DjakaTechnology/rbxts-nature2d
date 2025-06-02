@@ -1,6 +1,6 @@
 import Engine from "Engine";
-import { Point } from "./Point";
-import { Canvas, EngineConfig, SegmentConfig } from "Types";
+import Point from "./Point";
+import Types from "Types";
 
 interface ConstraintOptions {
   restLength: number;
@@ -10,7 +10,7 @@ interface ConstraintOptions {
   TYPE: string;
 }
 
-declare class Constraint {
+interface Constraint {
   point1: Point;
   point2: Point;
   restLength: number;
@@ -18,18 +18,9 @@ declare class Constraint {
   color: Color3;
   id: string;
   canvas: { frame: Frame | undefined; topLeft: Vector2; size: Vector2 };
-  engine: EngineConfig;
+  engine: Types.EngineConfig;
   options: ConstraintOptions;
   ui: Frame;
-
-  constructor(
-    point1: Point,
-    point2: Point,
-    canvas: Canvas,
-    config: SegmentConfig,
-    engine: Engine,
-    parent?: Instance
-  );
 
   Constrain(): void;
   Render(): void;
@@ -44,4 +35,16 @@ declare class Constraint {
   Destroy(): void;
 }
 
-export { Constraint };
+interface ConstraintConstructor {
+  new (
+    point1: Point,
+    point2: Point,
+    canvas: Types.Canvas,
+    config: Types.SegmentConfig,
+    engine: Engine
+  ): Constraint;
+}
+
+declare const Constraint: ConstraintConstructor;
+
+export = Constraint;

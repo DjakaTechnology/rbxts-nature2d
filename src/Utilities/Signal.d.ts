@@ -5,4 +5,4 @@ interface Signal {
   Destroy(): void;
 }
 
-export { Signal };
+export = Signal;

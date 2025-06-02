@@ -1,31 +1,21 @@
-import { Point } from "./Point";
-import { Constraint } from "./Constraint";
+import Point from "./Point";
+import Constraint from "./Constraint";
 import Engine from "Engine";
-import { Collision, Custom } from "Types";
+import Types from "Types";
 
-declare class RigidBody {
+interface RigidBody {
   object: GuiObject | undefined;
   mass: number;
   collidable: boolean;
   anchored: boolean;
   engine: Engine;
-  custom: Custom | undefined;
+  custom: Types.Custom | undefined;
   isCustom: boolean;
   id: string;
   vertices: Point[];
   edges: Constraint[];
   connections: RBXScriptConnection[];
   lifeSpan: number | undefined;
-
-  constructor(
-    frame: GuiObject | undefined,
-    mass: number,
-    collidable?: boolean,
-    anchored?: boolean,
-    engine?: Engine,
-    custom?: Custom,
-    structure?: any
-  );
 
   GetCorners(): LuaTuple<[Vector2, Vector2, Vector2, Vector2]>;
   CalculatePenetration(
@@ -44,7 +34,7 @@ declare class RigidBody {
     Min: number,
     Max: number
   ): LuaTuple<[number, number]>;
-  DetectCollision(other: RigidBody): LuaTuple<[boolean, Collision]>;
+  DetectCollision(other: RigidBody): LuaTuple<[boolean, Types.Collision]>;
   ApplyForce(force: Vector2, t?: number): void;
   Update(dt: number): void;
   Render(): void;
@@ -80,4 +70,18 @@ declare class RigidBody {
   SetMaxForce(maxForce: number): void;
 }
 
-export { RigidBody };
+interface RigidBodyConstructor {
+  new (
+    frame: GuiObject | undefined,
+    mass: number,
+    collidable?: boolean,
+    anchored?: boolean,
+    engine?: Engine,
+    custom?: Types.Custom,
+    structure?: any
+  ): RigidBody;
+}
+
+declare const RigidBody: RigidBodyConstructor;
+
+export = RigidBody;
