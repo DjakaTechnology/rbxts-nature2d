@@ -2,13 +2,7 @@ import { Signal } from "./Utilities/Signal";
 import { RigidBody } from "./Physics/RigidBody";
 import { Constraint } from "./Physics/Constraint";
 import { Point } from "./Physics/Point";
-import { DebugInfo, Properties } from "./Types";
-
-interface Canvas {
-  frame: Frame | undefined;
-  topLeft: Vector2;
-  size: Vector2;
-}
+import { Canvas, DebugInfo, Properties } from "./Types";
 
 interface Iterations {
   constraint: number;

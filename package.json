@@ -8,6 +8,9 @@
     "type": "git",
     "url": "git+https://github.com/DjakaTechnology/rbxts-nature2d.git"
   },
+  "scripts": {
+    "prepublishOnly": "rbxtsc"
+  },
   "keywords": [
     "roblox",
     "roblox-ts",
@@ -34,5 +37,8 @@
   "bugs": {
     "url": "https://github.com/DjakaTechnology/rbxts-nature2d/issues"
   },
-  "homepage": "https://github.com/DjakaTechnology/rbxts-nature2d#readme"
+  "homepage": "https://github.com/DjakaTechnology/rbxts-nature2d#readme",
+  "files": [
+    "src"
+  ]
 }
