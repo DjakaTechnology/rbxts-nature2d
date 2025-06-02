@@ -1,4 +1,4 @@
-import Engine, { EngineConstructor } from "./Engine";
+import { EngineConstructor } from "./Engine";
 
 declare const Nature2D: EngineConstructor;
 
