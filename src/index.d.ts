@@ -1,5 +1,5 @@
-import Engine from "Engine";
+import Engine, { EngineConstructor } from "./Engine";
 
-declare const Nature2D: Engine;
+declare const Nature2D: EngineConstructor;
 
 export = Nature2D;

@@ -52,10 +52,11 @@ interface Engine {
   Destroy(): void;
 }
 
-interface EngineConstructor {
+export interface EngineConstructor {
+  new (): Engine;
   init(screengui: Instance): Engine;
 }
 
 declare const Engine: EngineConstructor;
 
-export = Engine;
+export default Engine;
